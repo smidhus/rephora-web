@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#6750a4" />
+    <meta name="description" content="Rephora organiza tu conocimiento, convierte temas en preguntas y te ayuda a estudiar con recuerdo activo." data-i18n-content="meta.description" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Rephora — Estudia para recordar</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido" data-i18n="a11y.skip">Saltar al contenido</a>
+    <header class="site-header">
+      <a class="brand" href="#inicio" aria-label="Rephora, inicio"><img src="/assets/app-icon.webp" alt="" width="42" height="42" /><span>Rephora</span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="main-nav" data-menu-button><span class="sr-only" data-i18n="a11y.menu">Abrir menú</span><span></span><span></span></button>
+      <nav id="main-nav" class="main-nav" aria-label="Navegación principal" data-i18n-aria="a11y.nav" data-nav>
+        <a href="#biblioteca" data-i18n="nav.library">Biblioteca</a><a href="#modos" data-i18n="nav.modes">Modos</a><a href="#metricas" data-i18n="nav.metrics">Métricas</a><a href="#comunidad" data-i18n="nav.rewards">Progreso</a>
+        <div class="locale-picker"><label class="sr-only" for="locale-select" data-i18n="locale.label">Idioma</label><select id="locale-select" data-locale aria-label="Idioma"><option value="es">ES</option><option value="en">EN</option><option value="de">DE</option><option value="fr">FR</option><option value="pt">PT</option></select></div>
+        <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.smidhus.rephora" data-i18n="nav.download">Descargar</a>
+      </nav>
+    </header>
+
+    <main id="contenido">
+      <section id="inicio" class="hero section-shell">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span><span data-i18n="hero.eyebrow">Flashcards con IA · respuestas abiertas</span></p>
+          <h1><span data-i18n="hero.line1">Responde con tus palabras.</span><br /><em data-i18n="hero.line2">Demuestra lo que entiendes.</em></h1>
+          <p class="hero-lead" data-i18n="hero.body">Genera flashcards con IA, practica con respuestas abiertas y recibe feedback directo según el significado, no por coincidencia exacta.</p>
+          <div class="hero-actions"><a class="store-badge-link" href="https://play.google.com/store/apps/details?id=com.smidhus.rephora" aria-label="Descárgala en Google Play" data-play-badge-link><img src="/assets/play-badges/es.png" alt="Descárgala en Google Play" width="646" height="250" data-play-badge /></a><span class="button ios-coming-button" aria-disabled="true"><img src="/assets/icons/app-store-ios.svg" alt="" width="448" height="512" aria-hidden="true" /><span data-i18n="availability.ios">iOS próximamente</span></span></div>
+        </div>
+        <figure class="hero-product-demo" aria-label="Ejemplo de una evaluación en Rephora" data-i18n-aria="hero.demoLabel">
+          <div class="hero-demo-orbit hero-demo-orbit-one" aria-hidden="true"></div>
+          <div class="hero-demo-orbit hero-demo-orbit-two" aria-hidden="true"></div>
+          <article class="answer-card">
+            <div class="answer-card-topline">
+              <span data-i18n="hero.demoContext">Biología · Fotosíntesis</span>
+              <span data-i18n="hero.demoProgress">Pregunta 7 de 12</span>
+            </div>
+            <div class="answer-card-question">
+              <span class="answer-card-kicker" data-i18n="hero.demoQuestionLabel">Pregunta abierta</span>
+              <h2 data-i18n="hero.demoQuestion">¿Por qué las hojas se ven verdes?</h2>
+            </div>
+            <div class="answer-card-response">
+              <span class="answer-source"><i aria-hidden="true">●</i><b data-i18n="hero.demoAnswerLabel">Tu respuesta</b></span>
+              <p data-i18n="hero.demoAnswer">Porque la clorofila absorbe principalmente la luz roja y azul, pero refleja la luz verde.</p>
+              <i class="answer-caret" aria-hidden="true"></i>
+            </div>
+          </article>
+          <div class="hero-raphi-companion"><img src="/assets/web-images/hero/raphi.png" data-i18n-alt="images.heroRaphi" alt="Raphi acompañando una evaluación de Rephora" width="285" height="326" fetchpriority="high" /></div>
+          <article class="feedback-card">
+            <div class="feedback-score" aria-label="Puntuación 8,6 de 10" data-i18n-aria="hero.demoScoreLabel"><span><strong>8,6</strong><small>/10</small></span></div>
+            <div class="feedback-copy"><span class="feedback-origin"><i aria-hidden="true">✦</i><b data-i18n="hero.demoRaphi">Feedback de Raphi</b></span><strong class="feedback-heading" data-i18n="hero.demoFeedbackTitle">Buen razonamiento</strong><p data-i18n="hero.demoFeedback">Identificaste correctamente el papel de la clorofila y explicaste qué ocurre con la luz verde.</p></div>
+          </article>
+        </figure>
+      </section>
+
+      <section id="biblioteca" class="library-section section-shell">
+        <p class="eyebrow library-section-eyebrow"><span></span><span data-i18n="library.eyebrow">01 · Organiza tu biblioteca</span></p>
+        <div class="library-story-layout">
+          <div class="library-story-copy"><h2 data-i18n="library.storyTitle">Organiza una materia. Domina cada pregunta.</h2><p data-i18n="library.storyBody">Estructura una materia en libros y quizzes; después practica con preguntas que conservan todo su contexto.</p></div>
+          <figure class="library-product-stage" aria-label="Recorrido interactivo por libros, quizzes y preguntas" data-i18n-aria="libraryTour.label">
+          <div class="library-tour-tabs" role="tablist" aria-label="Niveles de la biblioteca" data-i18n-aria="libraryTour.tabsLabel">
+            <button class="is-active" type="button" role="tab" aria-selected="true" aria-controls="library-books-view" data-library-tab="books" data-i18n-tooltip="libraryTour.booksHelp"><i>01</i><span data-i18n="library.books">Libros</span><em class="tab-info" aria-hidden="true">?</em></button>
+            <span aria-hidden="true"></span>
+            <button type="button" role="tab" aria-selected="false" aria-controls="library-quizzes-view" data-library-tab="quizzes" data-i18n-tooltip="libraryTour.quizzesHelp"><i>02</i><span>Quizzes</span><em class="tab-info" aria-hidden="true">?</em></button>
+            <span aria-hidden="true"></span>
+            <button type="button" role="tab" aria-selected="false" aria-controls="library-questions-view" data-library-tab="questions" data-i18n-tooltip="libraryTour.questionsHelp"><i>03</i><span data-i18n="library.questions">Preguntas</span><em class="tab-info" aria-hidden="true">?</em></button>
+          </div>
+          <div class="library-tour-frame">
+            <section id="library-books-view" class="library-tour-view books-view is-active" role="tabpanel" data-library-view="books">
+              <header class="ui-view-header"><div><small data-i18n="libraryTour.libraryLabel">Tu biblioteca</small><h3 data-i18n="libraryTour.myBooks">Mis libros</h3></div><span class="sort-pill" data-i18n="libraryTour.lastActivity">Última actividad ↕</span></header>
+              <div class="books-list">
+                <article class="ui-list-row"><i class="row-accent purple"></i><span><b data-i18n="libraryTour.academicEnglish">Inglés académico</b><small data-i18n="libraryTour.studiedDay">Estudiado hace 1 día</small></span><em>★ 8,6</em></article>
+                <article class="ui-list-row"><i class="row-accent blue"></i><span><b data-i18n="libraryTour.worldHistory">Historia universal</b><small data-i18n="libraryTour.studiedTwoDays">Estudiado hace 2 días</small></span><em>★ 7,8</em></article>
+                <article class="ui-list-row"><i class="row-accent purple"></i><span><b data-i18n="libraryTour.computerScience">Informática</b><small data-i18n="libraryTour.studiedThreeDays">Estudiado hace 3 días</small></span><em class="purple-score">★ 9,1</em></article>
+                <button class="ui-list-row ui-list-row-action" type="button" data-library-next="quizzes" aria-label="Abrir los quizzes de Biología esencial" data-i18n-aria="libraryTour.openBiologyQuizzes"><i class="row-accent orange"></i><span><b data-i18n="libraryTour.biologyEssentials">Biología esencial</b><small data-i18n="libraryTour.studiedThreeDays">Estudiado hace 3 días</small></span><em>★ 7,0</em></button>
+              </div>
+              <span class="ui-add-button" aria-hidden="true">+</span>
+            </section>
+
+            <section id="library-quizzes-view" class="library-tour-view quizzes-view" role="tabpanel" data-library-view="quizzes" hidden>
+              <div class="context-card"><span class="context-bookmark" aria-hidden="true"></span><div class="context-copy"><small data-i18n="libraryTour.bookContext">Libro</small><h3 data-i18n="libraryTour.biologyEssentials">Biología esencial</h3><p data-i18n="libraryTour.bookDescription">Una colección para comprender cómo los seres vivos obtienen energía, se reproducen y mantienen sus procesos celulares.</p><div class="context-meta"><span>ϟ <b>3</b></span><span>★ <b>7,0</b></span><span>◷ <b data-i18n="libraryTour.studiedFourDays">Estudiado hace 4 días</b></span></div></div><img src="/assets/raphi-archivist.webp" alt="Raphi archivista" data-i18n-alt="images.archivist" width="512" height="512" loading="lazy" /></div>
+              <header class="ui-subheader"><h4>Quizzes</h4><span class="sort-pill" data-i18n="libraryTour.lastActivity">Última actividad ↕</span></header>
+              <div class="quiz-list">
+                <article class="quiz-row"><span class="quiz-symbol">ϟ</span><div><b data-i18n="libraryTour.genetics">Introducción a la genética</b><span class="quiz-row-meta"><small>? 9</small><small>★ —</small><small data-i18n="libraryTour.studiedThreeDays">Estudiado hace 3 días</small></span></div><i class="quiz-row-menu" aria-hidden="true">•••</i></article>
+                <article class="quiz-row"><span class="quiz-symbol">ϟ</span><div><b data-i18n="libraryTour.cellBiology">Biología celular</b><span class="quiz-row-meta"><small>? 18</small><small>★ 7,9</small><small data-i18n="libraryTour.studiedTwoDays">Estudiado hace 2 días</small></span></div><i class="quiz-row-menu" aria-hidden="true">•••</i></article>
+                <button class="quiz-row quiz-row-action featured" type="button" data-library-next="questions" aria-label="Abrir las preguntas de Fundamentos de fotosíntesis" data-i18n-aria="libraryTour.openPhotosynthesisQuestions"><span class="quiz-symbol">ϟ</span><div><b data-i18n="libraryTour.photosynthesis">Fundamentos de fotosíntesis</b><span class="quiz-row-meta"><small>? 20</small><small>★ 7,0</small><small data-i18n="libraryTour.studiedFourDays">Estudiado hace 4 días</small></span></div><i class="quiz-row-menu" aria-hidden="true">•••</i></button>
+              </div>
+            </section>
+
+            <section id="library-questions-view" class="library-tour-view questions-view" role="tabpanel" data-library-view="questions" hidden>
+              <article class="quiz-summary-card"><div class="quiz-summary-top"><span class="quiz-symbol">ϟ</span><div><h3 data-i18n="libraryTour.photosynthesis">Fundamentos de fotosíntesis</h3><p data-i18n="libraryTour.quizDescription">Comprende cómo las plantas convierten la energía luminosa en energía química.</p></div></div><div class="quiz-summary-stats"><span>? &nbsp;20</span><span>★ 7,0</span><small data-i18n="libraryTour.progressFive">Progreso de estudio · 5 %</small></div><div class="quiz-progress"><i></i></div><div class="quiz-summary-actions"><button type="button" data-open-flashcards><span aria-hidden="true">◫</span><span>Flashcards</span></button><button class="evaluate-preview" type="button" data-open-evaluation aria-expanded="false" aria-controls="evaluation-info">▶ <b data-i18n="libraryTour.evaluate">Evaluar</b></button><aside id="evaluation-info" class="evaluation-popover" data-evaluation-popover role="note" aria-live="polite" hidden><button type="button" data-close-evaluation aria-label="Cerrar" data-i18n-aria="evaluation.close">×</button><b data-i18n="evaluation.eyebrow">¿Qué ocurre al evaluar?</b><p data-i18n="evaluation.body">Responde con tus propias palabras, recibe feedback y gana experiencia. Cuanto más estudias, más avanzas de nivel y mejor posición puedes alcanzar en el leaderboard.</p></aside></div></article>
+              <header class="ui-subheader"><h4 data-i18n="library.questions">Preguntas</h4><span class="sort-pill" data-i18n="libraryTour.lastActivity">Última actividad ↕</span></header>
+              <div class="review-mode-note"><span aria-hidden="true">◷</span><p><b data-i18n="libraryTour.reviewTitle">Repasa sin presión.</b><small data-i18n="libraryTour.reviewBody">Abre Flashcards para revisar preguntas y respuestas sin temporizador. Este repaso no otorga XP ni altera tus métricas.</small></p></div>
+              <div class="question-list-real">
+                <article class="question-row-real is-expanded" data-question-row><div class="question-row-title"><span>?</span><b data-i18n="libraryTour.questionAbsorption">¿Cómo se relaciona el espectro de absorción de la clorofila con el espectro de acción de la fotosíntesis?</b><i>•••</i></div><div class="question-row-meta"><button type="button" data-answer-toggle aria-expanded="true"><span aria-hidden="true">◉</span><span data-answer-toggle-label>Ocultar respuesta</span></button><em>↻ 0 &nbsp; ★ 0,0</em></div><p data-question-answer data-i18n="libraryTour.answerAbsorption">El espectro de acción de la fotosíntesis coincide estrechamente con el espectro de absorción de la clorofila.</p></article>
+                <article class="question-row-real" data-question-row><div class="question-row-title"><span>?</span><b data-i18n="libraryTour.questionAtp">¿Cuál es el papel del ATP en el ciclo de Calvin?</b><i>•••</i></div><div class="question-row-meta"><button type="button" data-answer-toggle aria-expanded="false"><span aria-hidden="true">◉</span><span data-answer-toggle-label>Mostrar respuesta</span></button><em>↻ 0 &nbsp; ★ 0,0</em></div><p data-question-answer data-i18n="libraryTour.answerAtp" hidden>El ATP aporta la energía que impulsa las reacciones del ciclo de Calvin para formar azúcares.</p></article>
+              </div>
+            </section>
+
+            <section class="library-tour-view flashcards-view" aria-label="Vista de flashcards" data-i18n-aria="libraryTour.flashcardsLabel" data-library-view="flashcards" hidden>
+              <header><button type="button" data-close-flashcards aria-label="Cerrar flashcards" data-i18n-aria="libraryTour.closeFlashcards">×</button><div><h3>Flashcards</h3><small data-i18n="libraryTour.flashcardContext">Biología esencial · Fundamentos de fotosíntesis</small></div><span></span></header>
+              <div class="flashcard-progress"><b>1 / 20</b><span><i></i></span><em>⚑</em></div>
+              <button class="study-flashcard" type="button" data-flip-card aria-pressed="false"><span class="flashcard-face flashcard-question"><i>?</i><small data-i18n="libraryTour.questionLabel">Pregunta</small><b data-i18n="libraryTour.questionAbsorption">¿Cómo se relaciona el espectro de absorción de la clorofila con el espectro de acción de la fotosíntesis?</b><em data-i18n="libraryTour.tapToFlip">Toca para voltear</em></span><span class="flashcard-face flashcard-answer"><i>♧</i><small data-i18n="libraryTour.answerLabel">Respuesta</small><b data-i18n="libraryTour.answerAbsorption">El espectro de acción de la fotosíntesis coincide estrechamente con el espectro de absorción de la clorofila.</b><em data-i18n="libraryTour.tapToFlip">Toca para voltear</em></span></button>
+              <footer><span aria-hidden="true">←</span><small data-i18n="libraryTour.swipeContinue">Desliza para continuar</small><span aria-hidden="true">→</span></footer>
+            </section>
+          </div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="modos" class="modes-section"><div class="section-shell"><div class="section-heading modes-heading light-copy"><p class="eyebrow light"><span></span><span data-i18n="modes.eyebrow">02 · Elige cómo practicar</span></p><h2 data-i18n="modes.title">Tú eliges el recorrido. Rephora refuerza lo que más necesitas.</h2><p class="section-intro" data-i18n="modes.intro">La evaluación es la misma en ambos modos. Lo que cambia es cómo aparecen las preguntas: sigue un orden que tú eliges o deja que Rephora priorice tus puntos débiles.</p></div><div class="mode-grid">
+        <article class="mode-card normal-mode"><div class="mode-top"><span class="mode-number">01</span><span class="mode-tag" data-i18n="modes.control">Tu orden, tus reglas</span></div><h3 data-i18n="modes.normalTitle">Modo Ordenado</h3><div class="mode-card-body"><div class="mode-copy"><p data-i18n="modes.normalBody">Elige cómo recorrer tus preguntas: por actividad reciente o fecha de creación. Tú decides por dónde empezar.</p><div class="order-selector"><small data-i18n="modes.sortPrompt">Elige el criterio y la dirección</small><div class="order-choice selected"><span>↕</span><b data-i18n="modes.sortRecent">Actividad reciente</b><em data-i18n="modes.sortNewest">Más recientes primero</em></div><div class="order-choice"><span>↕</span><b data-i18n="modes.sortCreated">Fecha de creación</b><em data-i18n="modes.sortOldest">Más antiguas primero</em></div></div></div><figure class="mode-character"><img src="/assets/raphi-ordered.png" alt="Raphi organiza un recorrido de estudio" data-i18n-alt="images.orderedRaphi" width="506" height="512" loading="lazy" /></figure></div><ul class="mode-points"><li data-i18n="modes.normalPoint1">Orden configurable</li><li data-i18n="modes.normalPoint2">Ideal para repasos completos</li><li data-i18n="modes.normalXp">Experiencia estándar por evaluación</li></ul></article>
+        <article class="mode-card challenge-mode"><div class="mode-top"><span class="mode-number">02</span><span class="mode-tag" data-i18n="modes.adaptive">Enfoque inteligente</span></div><h3 data-i18n="modes.challengeTitle">Modo Desafío</h3><div class="mode-card-body"><div class="mode-copy"><p data-i18n="modes.challengeBody">Rephora prioriza las preguntas con menor puntuación promedio. Las que ya dominas pueden aparecer, pero con menor probabilidad.</p><p class="probability-caption" data-i18n="modes.probabilityCaption">Menor promedio → mayor probabilidad</p><div class="challenge-meter" aria-hidden="true"><span style="--score:92%"><b>Q7</b><small data-i18n="modes.probabilityHigh">2,1 prom. · alta</small></span><span style="--score:66%"><b>Q3</b><small data-i18n="modes.probabilityMedium">5,4 prom. · media</small></span><span style="--score:43%"><b>Q9</b><small data-i18n="modes.probabilityLow">8,7 prom. · baja</small></span></div></div><figure class="mode-character"><img src="/assets/raphi-challenge.png" alt="Raphi preparado para el Modo Desafío" data-i18n-alt="images.challengeRaphi" width="512" height="469" loading="lazy" /></figure></div><ul class="mode-points"><li data-i18n="modes.challengePoint1">Límite de preguntas configurable</li><li data-i18n="modes.challengePoint2">Sin orden fijo: se adapta a tu aprendizaje</li><li class="xp-highlight" data-i18n="modes.challengeXp">Bonificación de experiencia</li></ul></article>
+      </div><div class="modes-outcome"><strong data-i18n="modes.outcomeTitle">Mismo feedback. Distinto camino.</strong><span data-i18n="modes.outcomeBody">Practica a tu ritmo o desafía tus puntos débiles. Cada respuesta mejora tus métricas, suma experiencia y te acerca al ranking de Rephora.</span></div></div></section>
+
+      <section id="metricas" class="metrics-section">
+        <div class="section-shell">
+          <header class="metrics-heading"><p class="eyebrow"><span></span><span data-i18n="metrics.eyebrow">03 · Resultados que te hacen avanzar</span></p><h2 data-i18n="metrics.title">Entiende tu respuesta. Mira cómo mejora tu progreso.</h2><p data-i18n="metrics.body">Después de cada respuesta, Rephora identifica lo que comprendiste y qué necesitas reforzar. Al terminar la sesión, el resultado actualiza tu biblioteca, suma experiencia y hace visible tu avance.</p></header>
+
+          <div class="results-experience">
+            <div class="results-tabs" role="tablist" aria-label="Momentos del resultado" data-i18n-aria="metrics.tabsLabel">
+              <button class="is-active" type="button" role="tab" aria-selected="true" aria-controls="answer-result-view" data-metrics-tab="answer"><span>01</span><b data-i18n="metrics.answerTab">Feedback de respuesta</b></button>
+              <button type="button" role="tab" aria-selected="false" aria-controls="session-result-view" data-metrics-tab="session"><span>02</span><b data-i18n="metrics.sessionTab">Resultado de sesión</b></button>
+            </div>
+
+            <div class="result-scenes">
+              <section id="answer-result-view" class="result-scene answer-result-scene is-active" role="tabpanel" data-metrics-view="answer">
+                <div class="answer-result-context">
+                  <div class="result-context-line"><span data-i18n="metrics.demoContext">Biología · Fotosíntesis</span><small data-i18n="metrics.demoProgress">Pregunta 7 de 12</small></div>
+                  <span class="result-question-label" data-i18n="metrics.questionLabel">Pregunta abierta</span>
+                  <h3 data-i18n="metrics.question">¿Por qué las hojas se ven verdes?</h3>
+                  <div class="result-user-answer"><span><i aria-hidden="true"></i><b data-i18n="metrics.yourAnswer">Tu respuesta</b></span><p data-i18n="metrics.answer">Porque la clorofila absorbe principalmente la luz roja y azul, pero refleja la luz verde.</p></div>
+                </div>
+                <article class="precise-feedback-card">
+                  <div class="result-score-ring"><span><strong data-i18n="metrics.answerScore">8,6</strong><small>/10</small></span></div>
+                  <div class="feedback-detail">
+                    <span class="feedback-detail-origin"><i aria-hidden="true">✦</i><b data-i18n="metrics.raphiFeedback">Feedback de Raphi</b></span>
+                    <h3 data-i18n="metrics.feedbackTitle">Buen razonamiento</h3>
+                    <div class="feedback-insight strength"><span aria-hidden="true">✓</span><p><b data-i18n="metrics.strengthTitle">Lo que entendiste bien</b><small data-i18n="metrics.strengthBody">Identificaste correctamente el papel de la clorofila y qué ocurre con la luz verde.</small></p></div>
+                    <div class="feedback-insight improve"><span aria-hidden="true">↗</span><p><b data-i18n="metrics.improveTitle">Qué puedes mejorar</b><small data-i18n="metrics.improveBody">Relaciona la reflexión de la luz con el color que finalmente percibimos.</small></p></div>
+                  </div>
+                </article>
+              </section>
+
+              <section id="session-result-view" class="result-scene session-result-scene" role="tabpanel" data-metrics-view="session" hidden>
+                <div class="session-complete-card">
+                  <div class="session-celebration"><img src="/assets/raphi-champion.webp" alt="Raphi celebra una sesión completada" data-i18n-alt="metrics.sessionRaphiAlt" width="360" height="420" loading="lazy" /><div><small data-i18n="metrics.sessionComplete">Sesión completada</small><strong>86%</strong><span data-i18n="metrics.sessionAccuracy">Precisión de la sesión</span><p data-i18n="metrics.sessionMessage">Tu resultado reúne todas las respuestas de esta sesión.</p></div></div>
+                  <div class="session-gains"><div><span aria-hidden="true">✦</span><b>+125</b><small data-i18n="metrics.xpEarned">XP obtenida</small></div><div><span aria-hidden="true">✓</span><b>7</b><small data-i18n="metrics.answers">Respuestas</small></div><div><span aria-hidden="true">♨</span><b>6</b><small data-i18n="metrics.correctAnswers">Con 7 o más</small></div><div><span aria-hidden="true">🔥</span><b>8</b><small data-i18n="metrics.streakDays">días de racha</small></div></div>
+                  <div class="level-progress"><span><b data-i18n="metrics.levelProgress">88% hacia el nivel 3</b><small>2.238 XP</small></span><i><em></em></i></div>
+                </div>
+                <aside class="session-explainer"><span class="session-explainer-number">02</span><p class="eyebrow"><span></span><span data-i18n="metrics.sessionImpactLabel">Al terminar la sesión</span></p><h3 data-i18n="metrics.sessionImpactTitle">Tu esfuerzo se convierte en progreso acumulado.</h3><p data-i18n="metrics.sessionImpactBody">Las respuestas aportan al resultado. Al cerrar la sesión, Rephora consolida tu XP, precisión, racha y nivel.</p><div class="session-note"><span aria-hidden="true">i</span><p data-i18n="metrics.sessionNote">El Modo Desafío aplica una bonificación de experiencia, pero ambos modos evalúan tus respuestas de la misma forma.</p></div></aside>
+              </section>
+            </div>
+
+            <div class="knowledge-impact">
+              <div class="knowledge-impact-copy"><small data-i18n="metrics.impactEyebrow">Una respuesta, tres niveles actualizados</small><h3 data-i18n="metrics.impactTitle">Tu resultado no queda aislado.</h3><p data-i18n="metrics.impactBody">La puntuación pasa a formar parte del promedio de la pregunta, del quiz y del libro.</p></div>
+              <div class="impact-path" aria-label="Impacto en pregunta, quiz y libro" data-i18n-aria="metrics.impactLabel">
+                <article><div class="impact-card-top"><span>01</span><span class="impact-icon question-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.5 18.5 4 20l1.2-3.7A8 8 0 1 1 7.5 18.5Z"/><path d="M9.5 9.2a2.6 2.6 0 0 1 5 .9c0 1.8-2.5 2-2.5 3.5"/><path d="M12 16.8h.01"/></svg></span></div><b data-i18n="metrics.questionMetric">Pregunta</b><strong data-i18n="metrics.answerScore">8,6</strong><small data-i18n="metrics.attemptAverage">Promedio de intentos</small></article>
+                <i aria-hidden="true"><span></span></i>
+                <article><div class="impact-card-top"><span>02</span><span class="impact-icon quiz-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m13.2 2.8-6.7 10h5.2l-.9 8.4 6.7-10h-5.2l.9-8.4Z"/><path d="M4 5.5h3M17 18.5h3"/></svg></span></div><b>Quiz</b><strong data-i18n="metrics.quizScore">7,8</strong><small data-i18n="metrics.quizAverage">Promedio del tema</small></article>
+                <i aria-hidden="true"><span></span></i>
+                <article><div class="impact-card-top"><span>03</span><span class="impact-icon book-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5.2c2.8-.8 5.4-.2 8 1.7v13c-2.6-1.9-5.2-2.5-8-1.7v-13Z"/><path d="M20 5.2c-2.8-.8-5.4-.2-8 1.7v13c2.6-1.9 5.2-2.5 8-1.7v-13Z"/></svg></span></div><b data-i18n="metrics.bookMetric">Libro</b><strong data-i18n="metrics.bookScore">8,1</strong><small data-i18n="metrics.bookAverage">Dominio general</small></article>
+              </div>
+            </div>
+
+            <div class="leaderboard-band">
+              <div class="leaderboard-copy"><p class="eyebrow light"><span></span><span data-i18n="metrics.leaderboardEyebrow">Diferentes formas de destacar</span></p><h3 data-i18n="metrics.leaderboardTitle">Tu progreso también encuentra su lugar en el ranking.</h3><p data-i18n="metrics.leaderboardBody">Compara tu avance por experiencia, constancia, precisión o eficiencia. No hay una única forma de progresar en Rephora.</p></div>
+              <div class="leaderboard-metrics">
+                <article><span class="leaderboard-icon xp" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 2 1.6 5.1L19 9l-5.4 1.9L12 16l-1.6-5.1L5 9l5.4-1.9L12 2Z"/><path d="m18.3 15 .8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8.8-2.2Z"/></svg></span><div><b data-i18n="metrics.leaderboardXp">Experiencia</b><strong data-i18n="metrics.leaderboardXpValue">2.460 XP</strong><small data-i18n="metrics.leaderboardXpNote">XP total acumulada</small></div><em><span data-i18n="metrics.position">Pos.</span>#12</em></article>
+                <article><span class="leaderboard-icon streak" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13.2 2.8c.4 3.2-1.7 4.6-3.3 6.4-1.3 1.5-2.2 3-1.2 5.2.5-1.5 1.5-2.4 3-3.3-.2 2.2 2.1 3 1.2 5.8 2.7-.5 5.5-2.5 5.5-6.4 0-3.6-2.1-6.8-4.2-10.7Z"/><path d="M11.8 20.8c-2.3-1.1-2.2-3.3-.7-5.1.2 1.4 1.7 1.9 1.8 3.2.1.8-.3 1.5-1.1 1.9Z"/></svg></span><div><b data-i18n="metrics.leaderboardStreak">Racha</b><strong data-i18n="metrics.leaderboardStreakValue">8 días</strong><small data-i18n="metrics.leaderboardStreakNote">Constancia diaria</small></div><em><span data-i18n="metrics.position">Pos.</span>#18</em></article>
+                <article><span class="leaderboard-icon accuracy" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2"/></svg></span><div><b data-i18n="metrics.leaderboardAccuracy">Precisión</b><strong>86%</strong><small data-i18n="metrics.leaderboardAccuracyNote">Puntuación sobre el máximo posible</small></div><em><span data-i18n="metrics.position">Pos.</span>#09</em></article>
+                <article><span class="leaderboard-icon efficiency" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M9.5 2.8h5M12 5v2M12 13l3.8-2.6M18.2 6.8l1.2-1.2"/></svg></span><div><b data-i18n="metrics.leaderboardEfficiency">Eficiencia</b><strong data-i18n="metrics.leaderboardEfficiencyValue">18,4 s/punto</strong><small data-i18n="metrics.leaderboardEfficiencyNote">Menos segundos por punto es mejor</small></div><em><span data-i18n="metrics.position">Pos.</span>#16</em></article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="comunidad" class="community-section"><div class="section-shell"><div class="section-heading community-heading"><p class="eyebrow"><span></span><span data-i18n="community.eyebrow">04 · Tu progreso toma forma</span></p><h2 data-i18n="community.title">Tu experiencia transforma Rephora.</h2><p data-i18n="community.body">Cada evaluación suma XP. Al subir de nivel, tu isla evoluciona y desbloqueas nuevas skins para Raphi y canciones para la emisora Raphi.</p></div><div class="progress-experience">
+        <article class="progress-world-panel">
+          <div class="journey-overview">
+            <div class="journey-status"><div class="journey-level"><span data-i18n="community.level">Nivel 8</span><strong>2.460 / 3.000 XP</strong></div><div class="journey-progress"><p data-i18n="community.progressRemaining">Te faltan 540 XP para la próxima evolución.</p><span role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso hacia el nivel 9" data-i18n-aria="community.progressLabel"><i></i></span><small data-i18n="community.nextEvolution">Próxima evolución: nivel 9</small></div></div>
+            <div class="island-evolution" aria-label="Evolución de la isla de estudio" data-i18n-aria="community.islandEvolutionLabel"><figure class="island-stage island-stage-start"><img src="/assets/journey-level-00.webp" alt="Isla inicial del recorrido" data-i18n-alt="images.islandStart" width="582" height="428" loading="lazy" /><figcaption data-i18n="community.startedHere">Así empezaste</figcaption></figure><figure class="island-stage island-stage-current" aria-label="Tu isla actual, nivel 8" data-i18n-aria="community.currentIslandLevel"><img src="/assets/journey-level-05.webp" alt="Isla actual de estudio" data-i18n-alt="images.islandCurrent" width="559" height="446" loading="lazy" /></figure><figure class="island-stage island-stage-next"><span class="island-lock" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="3"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg></span><img src="/assets/journey-level-10.webp" alt="Próxima evolución de la isla" data-i18n-alt="images.islandNext" width="530" height="471" loading="lazy" /><figcaption data-i18n="community.nextLevel">Nivel 9</figcaption></figure></div>
+          </div>
+          <div class="journey-collection"><div class="collection-heading"><p class="eyebrow"><span></span><span data-i18n="community.collectionLabel">Recompensas del recorrido</span></p><h3 data-i18n="community.collectionTitle">Tu recorrido también amplía tu colección.</h3><p data-i18n="community.collectionBody">Los nuevos niveles desbloquean skins para personalizar a Raphi y canciones que se añaden a tu emisora de estudio.</p></div><div class="reward-groups" aria-label="Ejemplos de recompensas" data-i18n-aria="community.rewardGallery">
+            <section class="reward-group" aria-label="Avatares de Raphi" data-i18n-aria="community.skinsTitle"><header><b data-i18n="community.skinsTitle">Avatares de Raphi</b><small data-i18n="community.personalizeRaphi">Personaliza a tu compañero</small></header><div class="reward-row"><figure class="collection-card avatar-card avatar-card-drums"><img src="/assets/raphi-drums.webp" alt="Raphi tocando la batería" data-i18n-alt="images.avatarDrums" width="720" height="560" loading="lazy" /><figcaption data-i18n="community.avatarDrums">Raphi Baterista</figcaption></figure><figure class="collection-card avatar-card avatar-card-hero"><img src="/assets/raphi-hero.webp" alt="Raphi vestido de héroe" data-i18n-alt="images.avatarHero" width="720" height="560" loading="lazy" /><figcaption data-i18n="community.avatarHero">Raphi Héroe</figcaption></figure><div class="more-rewards"><b>+</b><span data-i18n="community.moreRewards">Más recompensas</span></div></div></section>
+            <section class="reward-group" aria-label="Emisora Raphi" data-i18n-aria="community.stationTitle"><header><b data-i18n="community.stationTitle">Emisora Raphi</b><small data-i18n="community.stationSubtitle">Música para acompañar tus sesiones</small></header><div class="reward-row"><figure class="collection-card song-card"><img src="/assets/rainy-window-table.webp" alt="Portada de Rainy Window Table" data-i18n-alt="images.songRain" width="512" height="512" loading="lazy" /><figcaption>Rainy Window Table</figcaption></figure><figure class="collection-card song-card"><img src="/assets/lotus-flower.webp" alt="Portada de Lotus Flower" data-i18n-alt="images.songLotus" width="512" height="512" loading="lazy" /><figcaption>Lotus Flower</figcaption></figure><div class="more-rewards"><b>+</b><span data-i18n="community.moreRewards">Más recompensas</span></div></div><p class="station-note"><span aria-hidden="true">▶</span><span data-i18n="community.soundtrackBody">Escúchalas en Rephora o déjalas sonar en segundo plano mientras estudias.</span></p></section>
+          </div></div>
+        </article>
+      </div></div></section>
+
+    </main>
+
+    <footer class="site-footer"><div class="footer-shell section-shell">
+      <div class="footer-brand"><a class="brand" href="#inicio"><img src="/assets/app-icon.webp" alt="" width="44" height="44" /><span>Rephora</span></a><p data-i18n="footer.value">Flashcards con IA para responder, comprender y mejorar con cada sesión.</p><div class="footer-stores"><a class="store-badge-link" href="https://play.google.com/store/apps/details?id=com.smidhus.rephora" aria-label="Descárgala en Google Play" data-play-badge-link><img src="/assets/play-badges/es.png" alt="Descárgala en Google Play" width="646" height="250" data-play-badge /></a><span class="button ios-coming-button" aria-disabled="true"><img src="/assets/icons/app-store-ios.svg" alt="" width="448" height="512" aria-hidden="true" /><span data-i18n="availability.ios">iOS próximamente</span></span></div></div>
+      <nav class="footer-links" aria-label="Navegación del pie de página" data-i18n-aria="footer.navLabel"><div><b data-i18n="footer.product">Producto</b><a href="#biblioteca" data-i18n="nav.library">Biblioteca</a><a href="#modos" data-i18n="nav.modes">Modos</a><a href="#metricas" data-i18n="nav.metrics">Métricas</a><a href="#comunidad" data-i18n="nav.rewards">Progreso</a></div><div><b data-i18n="footer.supportLegal">Soporte y legal</b><a href="mailto:hello@smidhus.com" data-i18n="footer.contact">Contacto</a><a href="https://www.smidhus.com/legal/privacy-policy" data-i18n="footer.privacy">Privacidad</a><a href="https://www.smidhus.com/legal/legal-notice" data-i18n="footer.legal">Aviso legal</a></div></nav>
+      <div class="footer-bottom"><span>© <span data-year></span> Rephora</span><span data-i18n="footer.byPrefix">Un producto de</span> <a href="https://www.smidhus.com/">Smidhus</a></div>
+    </div></footer>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
