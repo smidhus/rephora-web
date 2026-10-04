@@ -709,15 +709,19 @@ const nav = document.querySelector("[data-nav]");
 const playStoreBadge = document.querySelector("[data-play-badge]");
 const playStoreBadgeLink = document.querySelector("[data-play-badge-link]");
 
+function normalizeLocale(locale) {
+  return locale?.trim().toLowerCase().split(/[-_]/)[0];
+}
+
 function preferredLocale() {
-  const queryLocale = new URLSearchParams(window.location.search).get("lang");
-  const storedLocale = localStorage.getItem("rephora-locale");
-  const browserLocale = navigator.language?.slice(0, 2).toLowerCase();
-  return [queryLocale, storedLocale, browserLocale, "es"].find((locale) => supportedLocales.includes(locale)) || "es";
+  const queryLocale = normalizeLocale(new URLSearchParams(window.location.search).get("lang"));
+  const storedLocale = normalizeLocale(localStorage.getItem("rephora-locale"));
+  const browserLocales = [...(navigator.languages || []), navigator.language].map(normalizeLocale);
+  return [queryLocale, storedLocale, ...browserLocales].find((locale) => supportedLocales.includes(locale)) || "en";
 }
 
 function applyLocale(locale) {
-  const dictionary = translations[locale] || translations.es;
+  const dictionary = translations[locale] || translations.en;
   document.documentElement.lang = locale;
   document.title = dictionary["meta.title"];
   document.querySelectorAll("[data-i18n]").forEach((element) => {
@@ -789,7 +793,7 @@ function setEvaluationPopover(open) {
 }
 
 function updateAnswerToggles(locale = document.documentElement.lang) {
-  const dictionary = translations[locale] || translations.es;
+  const dictionary = translations[locale] || translations.en;
   document.querySelectorAll("[data-answer-toggle]").forEach((control) => {
     const expanded = control.getAttribute("aria-expanded") === "true";
     const label = dictionary[expanded ? "libraryTour.hideAnswerFull" : "libraryTour.showAnswer"];
