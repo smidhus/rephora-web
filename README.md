@@ -24,7 +24,7 @@ Después abre `http://localhost:4173`.
 
 ## Despliegue
 
-La rama `main` se despliega en producción mediante GitHub Actions y Vercel. El repositorio necesita estos secretos:
+La rama `main` se despliega en producción mediante GitHub Actions y Vercel. Los despliegues automáticos de la integración Git están desactivados, por lo que no se generan previews. El repositorio necesita estos secretos:
 
 - `VERCEL_TOKEN`
 - `VERCEL_ORG_ID`
