@@ -719,18 +719,6 @@ function localeFromPath() {
   return supportedLocales.includes(segment) ? segment : "en";
 }
 
-function preferredLocale() {
-  const queryLocale = normalizeLocale(new URLSearchParams(window.location.search).get("lang"));
-  const pathLocale = localeFromPath();
-  const hasLocalizedPath = window.location.pathname !== "/" && supportedLocales.includes(pathLocale);
-  const storedLocale = normalizeLocale(localStorage.getItem("rephora-locale"));
-  const browserLocales = [...(navigator.languages || []), navigator.language].map(normalizeLocale);
-  const candidates = hasLocalizedPath
-    ? [queryLocale, pathLocale]
-    : [queryLocale, storedLocale, ...browserLocales];
-  return candidates.find((locale) => supportedLocales.includes(locale)) || "en";
-}
-
 function localeDestination(locale) {
   const destination = new URL(localeRoutes[locale] || localeRoutes.en, window.location.origin);
   new URLSearchParams(window.location.search).forEach((value, key) => {
@@ -780,7 +768,6 @@ function applyLocale(locale) {
 
 localeSelect.addEventListener("change", ({ target }) => {
   const locale = target.value;
-  localStorage.setItem("rephora-locale", locale);
   window.location.assign(localeDestination(locale));
 });
 
@@ -918,14 +905,16 @@ flipCard?.addEventListener("click", () => {
 });
 
 document.querySelectorAll("[data-year]").forEach((element) => { element.textContent = new Date().getFullYear(); });
-const requestedLocale = preferredLocale();
 const queryLocale = normalizeLocale(new URLSearchParams(window.location.search).get("lang"));
 const currentLocale = localeFromPath();
 const shouldNormalizeLegacyUrl = supportedLocales.includes(queryLocale);
-const shouldHonorPreference = window.location.pathname === "/" && requestedLocale !== "en";
 
-if (shouldNormalizeLegacyUrl || shouldHonorPreference) {
-  window.location.replace(localeDestination(requestedLocale));
+// Locale routes are the source of truth. Clear the obsolete preference so an
+// earlier visit can never override `/` (English) or another explicit route.
+localStorage.removeItem("rephora-locale");
+
+if (shouldNormalizeLegacyUrl) {
+  window.location.replace(localeDestination(queryLocale));
 } else {
   applyLocale(currentLocale);
 }
