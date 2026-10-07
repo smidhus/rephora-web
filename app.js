@@ -703,6 +703,7 @@ Object.assign(translations.pt, {
 });
 
 const supportedLocales = Object.keys(translations);
+const localeRoutes = { en: "/", es: "/es/", pt: "/pt/", de: "/de/", fr: "/fr/" };
 const localeSelect = document.querySelector("[data-locale]");
 const menuButton = document.querySelector("[data-menu-button]");
 const nav = document.querySelector("[data-nav]");
@@ -713,11 +714,30 @@ function normalizeLocale(locale) {
   return locale?.trim().toLowerCase().split(/[-_]/)[0];
 }
 
+function localeFromPath() {
+  const segment = window.location.pathname.split("/").filter(Boolean)[0];
+  return supportedLocales.includes(segment) ? segment : "en";
+}
+
 function preferredLocale() {
   const queryLocale = normalizeLocale(new URLSearchParams(window.location.search).get("lang"));
+  const pathLocale = localeFromPath();
+  const hasLocalizedPath = window.location.pathname !== "/" && supportedLocales.includes(pathLocale);
   const storedLocale = normalizeLocale(localStorage.getItem("rephora-locale"));
   const browserLocales = [...(navigator.languages || []), navigator.language].map(normalizeLocale);
-  return [queryLocale, storedLocale, ...browserLocales].find((locale) => supportedLocales.includes(locale)) || "en";
+  const candidates = hasLocalizedPath
+    ? [queryLocale, pathLocale]
+    : [queryLocale, storedLocale, ...browserLocales];
+  return candidates.find((locale) => supportedLocales.includes(locale)) || "en";
+}
+
+function localeDestination(locale) {
+  const destination = new URL(localeRoutes[locale] || localeRoutes.en, window.location.origin);
+  new URLSearchParams(window.location.search).forEach((value, key) => {
+    if (key !== "lang") destination.searchParams.append(key, value);
+  });
+  destination.hash = window.location.hash;
+  return `${destination.pathname}${destination.search}${destination.hash}`;
 }
 
 function applyLocale(locale) {
@@ -761,10 +781,7 @@ function applyLocale(locale) {
 localeSelect.addEventListener("change", ({ target }) => {
   const locale = target.value;
   localStorage.setItem("rephora-locale", locale);
-  const url = new URL(window.location.href);
-  url.searchParams.set("lang", locale);
-  history.replaceState({}, "", url);
-  applyLocale(locale);
+  window.location.assign(localeDestination(locale));
 });
 
 menuButton.addEventListener("click", () => {
@@ -901,4 +918,14 @@ flipCard?.addEventListener("click", () => {
 });
 
 document.querySelectorAll("[data-year]").forEach((element) => { element.textContent = new Date().getFullYear(); });
-applyLocale(preferredLocale());
+const requestedLocale = preferredLocale();
+const queryLocale = normalizeLocale(new URLSearchParams(window.location.search).get("lang"));
+const currentLocale = localeFromPath();
+const shouldNormalizeLegacyUrl = supportedLocales.includes(queryLocale);
+const shouldHonorPreference = window.location.pathname === "/" && requestedLocale !== "en";
+
+if (shouldNormalizeLegacyUrl || shouldHonorPreference) {
+  window.location.replace(localeDestination(requestedLocale));
+} else {
+  applyLocale(currentLocale);
+}

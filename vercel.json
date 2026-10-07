@@ -1,6 +1,39 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/en/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "es" }],
+      "destination": "/es/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "pt" }],
+      "destination": "/pt/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "de" }],
+      "destination": "/de/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "fr" }],
+      "destination": "/fr/",
+      "permanent": true
+    }
+  ],
   "git": {
     "deploymentEnabled": {
       "*": false,
