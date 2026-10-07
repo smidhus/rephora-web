@@ -38,7 +38,17 @@ for (const locale of locales) {
   JSON.parse($("script[type='application/ld+json']").first().html());
 }
 
-for (const asset of ["app.js", "styles.css", "robots.txt", "sitemap.xml", "assets/app-icon.webp"]) {
+for (const asset of [
+  "app.js",
+  "styles.css",
+  "robots.txt",
+  "sitemap.xml",
+  "assets/app-icon.webp",
+  "assets/app-icon-96.webp",
+  "assets/raphi-ordered.webp",
+  "assets/raphi-challenge.webp",
+  "assets/web-images/hero/raphi.webp"
+]) {
   await access(path.join(outputRoot, asset));
 }
 
