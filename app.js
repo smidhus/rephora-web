@@ -630,8 +630,11 @@ Object.assign(translations.es, {
   "community.avatarHero": "Raphi Héroe",
   "community.stationTitle": "Emisora Raphi",
   "community.stationSubtitle": "Música para acompañar tus sesiones",
-  "community.moreRewards": "Más recompensas",
-  "community.soundtrackBody": "Escúchalas en Rephora o déjalas sonar en segundo plano mientras estudias."
+  "community.moreAvatars": "Más avatares",
+  "community.radioReward": "Radio Rephora",
+  "community.levelOne": "Nivel 1",
+  "images.radioReward": "Radio Rephora, recompensa del nivel 1",
+  "community.soundtrackBody": "Desbloquea la emisora en el nivel 1. Después, cada nivel añade nuevas canciones."
 });
 
 Object.assign(translations.en, {
@@ -647,8 +650,11 @@ Object.assign(translations.en, {
   "community.avatarHero": "Raphi Hero",
   "community.stationTitle": "Raphi Radio",
   "community.stationSubtitle": "Music for your study sessions",
-  "community.moreRewards": "More rewards",
-  "community.soundtrackBody": "Play them in Rephora or keep them running in the background while you study."
+  "community.moreAvatars": "More avatars",
+  "community.radioReward": "Rephora Radio",
+  "community.levelOne": "Level 1",
+  "images.radioReward": "Rephora Radio, level 1 reward",
+  "community.soundtrackBody": "Unlock the station at level 1. After that, every level adds new songs."
 });
 
 Object.assign(translations.de, {
@@ -664,8 +670,11 @@ Object.assign(translations.de, {
   "community.avatarHero": "Raphi Held",
   "community.stationTitle": "Raphi Radio",
   "community.stationSubtitle": "Musik für deine Lernsitzungen",
-  "community.moreRewards": "Mehr Belohnungen",
-  "community.soundtrackBody": "Höre sie in Rephora oder lass sie beim Lernen im Hintergrund weiterlaufen."
+  "community.moreAvatars": "Mehr Avatare",
+  "community.radioReward": "Rephora Radio",
+  "community.levelOne": "Stufe 1",
+  "images.radioReward": "Rephora Radio, Belohnung für Stufe 1",
+  "community.soundtrackBody": "Schalte den Sender auf Stufe 1 frei. Danach bringt jede Stufe neue Songs."
 });
 
 Object.assign(translations.fr, {
@@ -681,8 +690,11 @@ Object.assign(translations.fr, {
   "community.avatarHero": "Raphi Héros",
   "community.stationTitle": "Raphi Radio",
   "community.stationSubtitle": "De la musique pour vos sessions",
-  "community.moreRewards": "Plus de récompenses",
-  "community.soundtrackBody": "Écoutez-les dans Rephora ou laissez-les jouer en arrière-plan pendant vos révisions."
+  "community.moreAvatars": "Plus d'avatars",
+  "community.radioReward": "Radio Rephora",
+  "community.levelOne": "Niveau 1",
+  "images.radioReward": "Radio Rephora, récompense du niveau 1",
+  "community.soundtrackBody": "Débloquez la station au niveau 1. Ensuite, chaque niveau ajoute de nouveaux morceaux."
 });
 
 Object.assign(translations.pt, {
@@ -698,8 +710,11 @@ Object.assign(translations.pt, {
   "community.avatarHero": "Raphi Herói",
   "community.stationTitle": "Rádio Raphi",
   "community.stationSubtitle": "Música para suas sessões de estudo",
-  "community.moreRewards": "Mais recompensas",
-  "community.soundtrackBody": "Ouça na Rephora ou deixe tocando em segundo plano enquanto estuda."
+  "community.moreAvatars": "Mais avatares",
+  "community.radioReward": "Rádio Rephora",
+  "community.levelOne": "Nível 1",
+  "images.radioReward": "Rádio Rephora, recompensa do nível 1",
+  "community.soundtrackBody": "Libere a estação no nível 1. Depois, cada nível adiciona novas músicas."
 });
 
 const supportedLocales = Object.keys(translations);

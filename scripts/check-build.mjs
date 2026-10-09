@@ -47,6 +47,7 @@ for (const asset of [
   "assets/app-icon-96.webp",
   "assets/raphi-ordered.webp",
   "assets/raphi-challenge.webp",
+  "assets/rephora-radio.webp",
   "assets/web-images/hero/raphi.webp"
 ]) {
   await access(path.join(outputRoot, asset));
