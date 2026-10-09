@@ -95,9 +95,11 @@ function localizedDocument(template, translations, locale) {
 
   const structuredDataElement = $("script[type='application/ld+json']").first();
   const structuredData = JSON.parse(structuredDataElement.html());
-  structuredData.url = canonicalUrl;
-  structuredData.description = requireTranslation(dictionary, "meta.description", locale);
-  structuredData.inLanguage = locale;
+  const application = structuredData["@graph"]?.find((entity) => entity["@id"] === `${siteOrigin}/#application`);
+  if (!application) throw new Error("Could not locate the Rephora application entity");
+  application.mainEntityOfPage = { "@id": canonicalUrl };
+  application.description = requireTranslation(dictionary, "meta.description", locale);
+  application.inLanguage = locale;
   structuredDataElement.text(JSON.stringify(structuredData, null, 2));
 
   return $.html();

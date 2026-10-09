@@ -13,6 +13,8 @@ Landing page pública de Rephora. Presenta la propuesta del producto, la bibliot
 
 La raíz usa inglés como idioma predeterminado. Las demás versiones se publican en `/es/`, `/pt/`, `/de/` y `/fr/`.
 
+Cada versión genera su propio `canonical`, metadatos localizados y referencias `hreflang`. La portada también publica un grafo JSON-LD que relaciona el sitio Rephora, la aplicación móvil y Smidhus como publicador.
+
 ## Instalación
 
 ```bash

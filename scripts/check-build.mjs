@@ -35,7 +35,23 @@ for (const locale of locales) {
   }
   assert($("[data-locale]").val() === locale, `${locale}: locale selector is not selected`);
   assert(!html.includes("undefined"), `${locale}: generated output contains undefined`);
-  JSON.parse($("script[type='application/ld+json']").first().html());
+  const structuredData = JSON.parse($("script[type='application/ld+json']").first().html());
+  const graph = structuredData["@graph"];
+  assert(Array.isArray(graph), `${locale}: structured data graph is missing`);
+  const website = graph.find((entity) => entity["@id"] === `${siteOrigin}/#website`);
+  const organization = graph.find((entity) => entity["@id"] === "https://www.smidhus.com/#organization");
+  const application = graph.find((entity) => entity["@id"] === `${siteOrigin}/#application`);
+  assert(website?.["@type"] === "WebSite", `${locale}: WebSite entity is missing`);
+  assert(website?.name === "Rephora", `${locale}: invalid website name`);
+  assert(website?.alternateName === "rephora.app", `${locale}: invalid website alternate name`);
+  assert(website?.url === `${siteOrigin}/`, `${locale}: invalid website URL`);
+  assert(organization?.["@type"] === "Organization", `${locale}: Organization entity is missing`);
+  assert(application?.["@type"] === "MobileApplication", `${locale}: MobileApplication entity is missing`);
+  assert(application?.name === "Rephora", `${locale}: invalid application name`);
+  assert(application?.mainEntityOfPage?.["@id"] === expectedCanonical, `${locale}: invalid application page reference`);
+  assert(application?.inLanguage === locale, `${locale}: invalid application language`);
+  assert(application?.publisher?.["@id"] === organization?.["@id"], `${locale}: invalid application publisher`);
+  assert(application?.sameAs?.includes("https://play.google.com/store/apps/details?id=com.smidhus.rephora"), `${locale}: Google Play identity is missing`);
 }
 
 for (const asset of [

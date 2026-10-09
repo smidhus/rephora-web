@@ -33,37 +33,59 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "MobileApplication",
-        "name": "Rephora",
-        "alternateName": "Rephora: AI Flashcards Study",
-        "url": "https://www.rephora.app/",
-        "description": "An AI flashcards and study app with open-answer feedback, active recall, progress tracking, and focused practice for weak areas.",
-        "applicationCategory": "EducationalApplication",
-        "operatingSystem": "Android",
-        "isAccessibleForFree": true,
-        "image": "https://www.rephora.app/assets/app-icon.webp",
-        "downloadUrl": "https://play.google.com/store/apps/details?id=com.smidhus.rephora",
-        "installUrl": "https://play.google.com/store/apps/details?id=com.smidhus.rephora",
-        "featureList": [
-          "AI flashcard generation",
-          "Open-ended answer evaluation",
-          "Meaning-based feedback",
-          "Active recall practice",
-          "Study progress tracking"
-        ],
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD",
-          "availability": "https://schema.org/InStock"
-        },
-        "publisher": {
-          "@type": "Organization",
-          "name": "Smidhus",
-          "url": "https://www.smidhus.com/"
-        },
-        "sameAs": [
-          "https://play.google.com/store/apps/details?id=com.smidhus.rephora"
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://www.rephora.app/#website",
+            "url": "https://www.rephora.app/",
+            "name": "Rephora",
+            "alternateName": "rephora.app",
+            "publisher": {
+              "@id": "https://www.smidhus.com/#organization"
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.smidhus.com/#organization",
+            "name": "Smidhus",
+            "url": "https://www.smidhus.com/"
+          },
+          {
+            "@type": "MobileApplication",
+            "@id": "https://www.rephora.app/#application",
+            "name": "Rephora",
+            "alternateName": "Rephora: AI Flashcards Study",
+            "url": "https://www.rephora.app/",
+            "mainEntityOfPage": {
+              "@id": "https://www.rephora.app/"
+            },
+            "description": "An AI flashcards and study app with open-answer feedback, active recall, progress tracking, and focused practice for weak areas.",
+            "applicationCategory": "EducationalApplication",
+            "operatingSystem": "Android",
+            "isAccessibleForFree": true,
+            "image": "https://www.rephora.app/assets/app-icon.webp",
+            "downloadUrl": "https://play.google.com/store/apps/details?id=com.smidhus.rephora",
+            "installUrl": "https://play.google.com/store/apps/details?id=com.smidhus.rephora",
+            "featureList": [
+              "AI flashcard generation",
+              "Open-ended answer evaluation",
+              "Meaning-based feedback",
+              "Active recall practice",
+              "Study progress tracking"
+            ],
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD",
+              "availability": "https://schema.org/InStock"
+            },
+            "publisher": {
+              "@id": "https://www.smidhus.com/#organization"
+            },
+            "sameAs": [
+              "https://play.google.com/store/apps/details?id=com.smidhus.rephora"
+            ]
+          }
         ]
       }
     </script>
