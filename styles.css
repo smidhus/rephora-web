@@ -210,3 +210,4 @@
 /* App Store controls are active links once the store listing URL exists. */
 .ios-coming-button{cursor:pointer;transition:transform .2s,box-shadow .2s}.ios-coming-button:hover{transform:translateY(-2px)}.ios-coming-button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 .hero-actions .ios-coming-button{color:#675b72}
+.ios-coming-button>img{opacity:1}.hero-actions .ios-coming-button>img{filter:brightness(0)}.footer-stores .ios-coming-button>img{opacity:1}
