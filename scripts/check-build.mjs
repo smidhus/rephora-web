@@ -9,6 +9,13 @@ const siteOrigin = "https://www.rephora.app";
 const iosStoreUrl = "https://apps.apple.com/app/id6819848216";
 const localePaths = { en: "/", es: "/es/", pt: "/pt/", de: "/de/", fr: "/fr/" };
 const locales = Object.keys(localePaths);
+const sectionFragments = {
+  en: ["content", "home", "library", "modes", "metrics", "progress"],
+  es: ["contenido", "inicio", "biblioteca", "modos", "metricas", "progreso"],
+  pt: ["conteudo", "inicio", "biblioteca", "modos", "metricas", "progresso"],
+  de: ["inhalt", "start", "bibliothek", "lernmodi", "metriken", "fortschritt"],
+  fr: ["contenu", "accueil", "bibliotheque", "modes", "metriques", "progression"]
+};
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
@@ -35,6 +42,14 @@ for (const locale of locales) {
     );
   }
   assert($("[data-locale]").val() === locale, `${locale}: locale selector is not selected`);
+  for (const fragment of sectionFragments[locale]) {
+    assert($(`[id='${fragment}']`).length === 1, `${locale}: missing #${fragment} section`);
+    assert(/^[a-z0-9-]+$/.test(fragment), `${locale}: unsafe URL fragment #${fragment}`);
+  }
+  $("a[href^='#']").each((_, element) => {
+    const href = $(element).attr("href");
+    assert($(href).length === 1, `${locale}: ${href} does not target a section`);
+  });
   assert(!html.includes("undefined"), `${locale}: generated output contains undefined`);
   const structuredData = JSON.parse($("script[type='application/ld+json']").first().html());
   const graph = structuredData["@graph"];

@@ -717,6 +717,16 @@ Object.assign(translations.pt, {
   "community.soundtrackBody": "Libere a estação no nível 1. Depois, cada nível adiciona novas músicas."
 });
 
+const sectionFragments = Object.freeze({
+  content: { en: "content", es: "contenido", pt: "conteudo", de: "inhalt", fr: "contenu" },
+  home: { en: "home", es: "inicio", pt: "inicio", de: "start", fr: "accueil" },
+  library: { en: "library", es: "biblioteca", pt: "biblioteca", de: "bibliothek", fr: "bibliotheque" },
+  modes: { en: "modes", es: "modos", pt: "modos", de: "lernmodi", fr: "modes" },
+  metrics: { en: "metrics", es: "metricas", pt: "metricas", de: "metriken", fr: "metriques" },
+  progress: { en: "progress", es: "progreso", pt: "progresso", de: "fortschritt", fr: "progression" }
+});
+const legacySectionFragments = Object.freeze({ comunidad: "progress" });
+
 const supportedLocales = Object.keys(translations);
 const localeRoutes = { en: "/", es: "/es/", pt: "/pt/", de: "/de/", fr: "/fr/" };
 const localeSelect = document.querySelector("[data-locale]");
@@ -734,13 +744,43 @@ function localeFromPath() {
   return supportedLocales.includes(segment) ? segment : "en";
 }
 
+function normalizeFragment(fragment) {
+  try {
+    return decodeURIComponent(fragment.replace(/^#/, ""))
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+  } catch {
+    return fragment.replace(/^#/, "").toLowerCase();
+  }
+}
+
+function sectionKeyFromHash(hash) {
+  const normalized = normalizeFragment(hash);
+  return Object.entries(sectionFragments).find(([, fragments]) => Object.values(fragments).includes(normalized))?.[0]
+    || legacySectionFragments[normalized];
+}
+
+function localizedHash(locale, hash = window.location.hash) {
+  if (!hash) return "";
+  const sectionKey = sectionKeyFromHash(hash);
+  return sectionKey ? `#${sectionFragments[sectionKey][locale]}` : hash;
+}
+
 function localeDestination(locale) {
   const destination = new URL(localeRoutes[locale] || localeRoutes.en, window.location.origin);
   new URLSearchParams(window.location.search).forEach((value, key) => {
     if (key !== "lang") destination.searchParams.append(key, value);
   });
-  destination.hash = window.location.hash;
+  destination.hash = localizedHash(locale);
   return `${destination.pathname}${destination.search}${destination.hash}`;
+}
+
+function normalizeCurrentHash(locale) {
+  const localized = localizedHash(locale);
+  if (!localized || localized === window.location.hash) return;
+  window.history.replaceState(null, "", `${window.location.pathname}${window.location.search}${localized}`);
+  window.requestAnimationFrame(() => document.getElementById(localized.slice(1))?.scrollIntoView());
 }
 
 function applyLocale(locale) {
@@ -785,6 +825,8 @@ localeSelect.addEventListener("change", ({ target }) => {
   const locale = target.value;
   window.location.assign(localeDestination(locale));
 });
+
+window.addEventListener("hashchange", () => normalizeCurrentHash(localeFromPath()));
 
 menuButton.addEventListener("click", () => {
   const open = menuButton.getAttribute("aria-expanded") === "true";
@@ -932,4 +974,5 @@ if (shouldNormalizeLegacyUrl) {
   window.location.replace(localeDestination(queryLocale));
 } else {
   applyLocale(currentLocale);
+  normalizeCurrentHash(currentLocale);
 }

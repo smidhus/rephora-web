@@ -23,15 +23,15 @@ const openGraphLocales = {
   fr: "fr_FR"
 };
 
-function loadTranslations(source) {
+function loadLocalization(source) {
   const marker = "const supportedLocales = Object.keys(translations);";
   const end = source.indexOf(marker);
   if (end === -1) throw new Error("Could not locate the translation boundary in app.js");
 
   const sandbox = {};
   vm.createContext(sandbox);
-  vm.runInContext(`${source.slice(0, end)}\nglobalThis.__translations = translations;`, sandbox);
-  return sandbox.__translations;
+  vm.runInContext(`${source.slice(0, end)}\nglobalThis.__localization = { translations, sectionFragments };`, sandbox);
+  return sandbox.__localization;
 }
 
 function requireTranslation(dictionary, key, locale) {
@@ -42,7 +42,7 @@ function requireTranslation(dictionary, key, locale) {
   return value;
 }
 
-function localizedDocument(template, translations, locale) {
+function localizedDocument(template, translations, sectionFragments, locale) {
   const dictionary = translations[locale];
   const canonicalUrl = `${siteOrigin}${localePaths[locale]}`;
   const $ = cheerio.load(template, { decodeEntities: false });
@@ -71,6 +71,13 @@ function localizedDocument(template, translations, locale) {
     const key = $(element).attr("data-i18n-alt");
     $(element).attr("alt", requireTranslation(dictionary, key, locale));
   });
+
+  for (const fragments of Object.values(sectionFragments)) {
+    const templateFragment = fragments.es;
+    const localizedFragment = fragments[locale];
+    $(`[id='${templateFragment}']`).attr("id", localizedFragment);
+    $(`a[href='#${templateFragment}']`).attr("href", `#${localizedFragment}`);
+  }
 
   $("link[rel='canonical']").attr("href", canonicalUrl);
   $("link[data-generated-hreflang]").remove();
@@ -112,7 +119,7 @@ async function build() {
     readFile(path.join(projectRoot, "index.html"), "utf8"),
     readFile(path.join(projectRoot, "app.js"), "utf8")
   ]);
-  const translations = loadTranslations(appSource);
+  const { translations, sectionFragments } = loadLocalization(appSource);
 
   for (const locale of locales) {
     if (!translations[locale]) throw new Error(`Missing ${locale} translation dictionary`);
@@ -135,7 +142,7 @@ async function build() {
     await mkdir(destinationDirectory, { recursive: true });
     await writeFile(
       path.join(destinationDirectory, "index.html"),
-      localizedDocument(template, translations, locale),
+      localizedDocument(template, translations, sectionFragments, locale),
       "utf8"
     );
   }
