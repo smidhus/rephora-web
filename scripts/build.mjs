@@ -99,8 +99,6 @@ function localizedDocument(template, translations, sectionFragments, locale) {
   const badgeLabel = `${requireTranslation(dictionary, "download.get", locale)} Google Play`;
   $("[data-play-badge]").attr({ src: `/assets/play-badges/${locale}.png`, alt: badgeLabel });
   $("[data-play-badge-link]").attr("aria-label", badgeLabel);
-  const iosStoreLabel = `${requireTranslation(dictionary, "download.get", locale)} App Store`;
-  $("[data-ios-store-link]").attr("aria-label", iosStoreLabel);
 
   const structuredDataElement = $("script[type='application/ld+json']").first();
   const structuredData = JSON.parse(structuredDataElement.html());

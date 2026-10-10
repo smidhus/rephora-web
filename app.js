@@ -717,6 +717,12 @@ Object.assign(translations.pt, {
   "community.soundtrackBody": "Libere a estação no nível 1. Depois, cada nível adiciona novas músicas."
 });
 
+Object.assign(translations.es, { "download.comingSoon": "Próximamente en" });
+Object.assign(translations.en, { "download.comingSoon": "Coming soon on" });
+Object.assign(translations.de, { "download.comingSoon": "Bald im" });
+Object.assign(translations.fr, { "download.comingSoon": "Bientôt sur" });
+Object.assign(translations.pt, { "download.comingSoon": "Em breve na" });
+
 const sectionFragments = Object.freeze({
   content: { en: "content", es: "contenido", pt: "conteudo", de: "inhalt", fr: "contenu" },
   home: { en: "home", es: "inicio", pt: "inicio", de: "start", fr: "accueil" },

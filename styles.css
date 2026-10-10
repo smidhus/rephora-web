@@ -207,7 +207,5 @@
 }
 @media(max-width:430px){.hero-copy h1{font-size:2.45rem}}
 
-/* App Store controls are active links once the store listing URL exists. */
-.ios-coming-button{cursor:pointer;transition:transform .2s,box-shadow .2s}.ios-coming-button:hover{transform:translateY(-2px)}.ios-coming-button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.hero-actions .ios-coming-button{color:#675b72}
-.ios-coming-button>img{opacity:1}.hero-actions .ios-coming-button>img{filter:brightness(0)}.footer-stores .ios-coming-button>img{opacity:1}
+/* Keep App Store visually present without advertising a download before approval. */
+.ios-coming-soon{cursor:default;user-select:none}.ios-coming-soon:hover{transform:none}.hero-actions .ios-coming-soon{color:#675b72}.ios-coming-soon>img{opacity:.78}.hero-actions .ios-coming-soon>img{filter:none}.footer-stores .ios-coming-soon>img{opacity:.78}

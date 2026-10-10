@@ -71,15 +71,15 @@ for (const locale of locales) {
   assert(application?.operatingSystem?.includes("Android"), `${locale}: Android platform is missing`);
   assert(application?.operatingSystem?.includes("iOS"), `${locale}: iOS platform is missing`);
   assert(application?.sameAs?.includes(androidStoreUrl), `${locale}: Google Play identity is missing`);
-  assert(application?.sameAs?.includes(iosStoreUrl), `${locale}: App Store identity is missing`);
-  assert(application?.downloadUrl?.includes(iosStoreUrl), `${locale}: App Store download URL is missing`);
-  assert($("[data-ios-store-link]").length === 2, `${locale}: expected two App Store links`);
-  $("[data-ios-store-link]").each((_, element) => {
-    assert($(element).attr("href") === iosStoreUrl, `${locale}: invalid App Store link`);
-    assert($(element).attr("aria-label")?.endsWith("App Store"), `${locale}: missing App Store label`);
+  assert(!application?.sameAs?.includes(iosStoreUrl), `${locale}: unavailable App Store identity must not be advertised`);
+  assert(!application?.downloadUrl?.includes(iosStoreUrl), `${locale}: unavailable App Store download URL must not be advertised`);
+  assert($("a").filter((_, element) => $(element).attr("href") === iosStoreUrl).length === 0, `${locale}: unavailable App Store must not be linked`);
+  assert($("[data-ios-coming-soon]").length === 2, `${locale}: expected two App Store coming-soon controls`);
+  $("[data-ios-coming-soon]").each((_, element) => {
+    assert($(element).text().includes("App Store"), `${locale}: App Store coming-soon label is missing`);
   });
-  const storeLinks = $(`a[href='${androidStoreUrl}'], a[href='${iosStoreUrl}']`);
-  assert(storeLinks.length === 5, `${locale}: expected five store links`);
+  const storeLinks = $(`a[href='${androidStoreUrl}']`);
+  assert(storeLinks.length === 3, `${locale}: expected three active store links`);
   storeLinks.each((_, element) => {
     const relation = new Set(($(element).attr("rel") ?? "").split(/\s+/));
     assert($(element).attr("target") === "_blank", `${locale}: store link must open in a new tab`);
