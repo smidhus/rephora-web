@@ -6,6 +6,7 @@ import * as cheerio from "cheerio";
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const outputRoot = path.join(projectRoot, "dist");
 const siteOrigin = "https://www.rephora.app";
+const iosStoreUrl = "https://apps.apple.com/app/id6819848216";
 const localePaths = { en: "/", es: "/es/", pt: "/pt/", de: "/de/", fr: "/fr/" };
 const locales = Object.keys(localePaths);
 
@@ -51,7 +52,16 @@ for (const locale of locales) {
   assert(application?.mainEntityOfPage?.["@id"] === expectedCanonical, `${locale}: invalid application page reference`);
   assert(application?.inLanguage === locale, `${locale}: invalid application language`);
   assert(application?.publisher?.["@id"] === organization?.["@id"], `${locale}: invalid application publisher`);
+  assert(application?.operatingSystem?.includes("Android"), `${locale}: Android platform is missing`);
+  assert(application?.operatingSystem?.includes("iOS"), `${locale}: iOS platform is missing`);
   assert(application?.sameAs?.includes("https://play.google.com/store/apps/details?id=com.smidhus.rephora"), `${locale}: Google Play identity is missing`);
+  assert(application?.sameAs?.includes(iosStoreUrl), `${locale}: App Store identity is missing`);
+  assert(application?.downloadUrl?.includes(iosStoreUrl), `${locale}: App Store download URL is missing`);
+  assert($("[data-ios-store-link]").length === 2, `${locale}: expected two App Store links`);
+  $("[data-ios-store-link]").each((_, element) => {
+    assert($(element).attr("href") === iosStoreUrl, `${locale}: invalid App Store link`);
+    assert($(element).attr("aria-label")?.endsWith("App Store"), `${locale}: missing App Store label`);
+  });
 }
 
 for (const asset of [
